@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pages</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="BlockHref">
+        <a href="{% url 'form' %}">Add page</a>
+    </div>
+    {% for i in pages %}
+        <div class="contaner">
+            <div class="contaner__text">
+                <p class="author">{{i.title}}</p>
+                <p class="text_content Text">{{i.Text}}</p>
+            </div>
+            <block class="BlockImg">
+                <img src="/static/img/{{i.href}}" class="BlockImg">
+            </block>
+        </div>
+    {% endfor %}
+</body>
+</html>
